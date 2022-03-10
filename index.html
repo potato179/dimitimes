@@ -31,7 +31,7 @@
 </head>
 <body>
     <br><br><br><br><br><br>
-    <div class = "container">
+    <div class = "container center">
         <p class = "bold gray" style = "font-size: 500%; line-height: 100%;">Welcome to</p>
         <p class = "bold" style = "font-size: 750%; line-height: 100%; color: #E80C7A">Dimitimes</p>
         <br><br><br>
@@ -40,6 +40,29 @@
         <button onclick = "window.open('https://book.dimigo.me')" class = "button-proceed box-gold black" style = "font-size: 30px; width: 75%;"><span><i class="fas fa-book"></i>&nbsp;디지털교과서</span></button>
         <p>* 자동 자가진단 서비스는 지속적인 민원과 보안 문제로 인해 서비스를 종료하였습니다.</p>
         <br><br><br>
+        <div class = "row g-3" style = "width: 75%; margin: 0 auto;">
+            <div class="col-md-4">
+              <select class="form-select" id="country" required="">
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <select class="form-select" id="state" required="">
+                <option value="">Choose...</option>
+                <option>California</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button class = "button-next form-control btn btn-primary" id = "zip"><span>asdfdsaf</span></button>
+            </div>
+          </div>
     </div>
 </body>
 </html>
