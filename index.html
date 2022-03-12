@@ -59,9 +59,159 @@
 				</select>
             </div>
             <div class="col-md-4">
-              <button class = "button-next form-control btn btn-primary" id = "zip"><span>조회하기!</span></button>
+              	<button class = "button-next form-control btn btn-primary" id = "zip"><span>시간표 조회하기!</span></button>
             </div>
           </div>
     </div>
+	<script>
+		var sj111 = ["체육", "도덕", "과A", "사회", "수학", "사회"]  // 1-1반 월
+		var sj112 = ["역사", "수학", "과B", "미술", "중어", "영어", "스포"] // 1-1반 화
+		var sj113 = ["수학", "영어", "역사", "국어", "과A", "체육"] // 1-1반 수
+		var sj114 = ["과A", "수학", "국어", "중어", "독서", "영A", "창체"] // 1-1반 목
+		var sj115 = ["영어", "미술", "국어", "음악", "사회", "체육"] // 1-1반 금
+
+		var sj121 = ["역사", "미술", "영어", "사회", "국어", "체육"] // 2반 월
+		var sj122 = ["과B", "체육", "과A", "중어", "영어", "수학", "스포"] // 2반 화
+		var sj123 = ["영A", "역사", "국어", "독서", "중어", "수학"] // 2반 수
+		var sj124 = ["미술", "체육", "수학", "과A", "사회", "국어", "창체"] // 2반 목
+		var sj125 = ["국어", "음악", "과A", "영어", "중어", "수학"] // 2반 금
+
+		var sj131 = ["국어", "역사", "수학", "영어", "중어", "독서"] // 3반 월
+		var sj132 = ["체육", "국어", "사회", "과B", "수학", "역사", "스포"] // 3반 화
+		var sj133 = ["과A", "수학", "미술", "체육", "영어", "음악"] // 3반 수
+		var sj134 = ["중어", "국어", "사회", "미술", "영어", "과A", "창체"] // 3반 목
+		var sj135 = ["영C", "수학", "체육", "국어", "과A", "중어"] // 3반 금
+
+		var sj141 = ["일어", "국어", "체육", "미술", "역사", "수학"] // 4반 월
+		var sj142 = ["사회", "영C", "영어", "체육", "국어", "과B", "스포"] // 4반 화
+		var sj143 = ["일어", "일어", "수학", "과A", "독서", "국어"] // 4반 수
+		var sj144 = ["음악", "영어", "과A", "체육", "국어", "수학", "창체"] // 4반 목
+		var sj145 = ["사회", "과A", "영어", "역사", "수학", "미술"] // 4반 금
+
+		var sj151 = ["수학", "일어", "일어", "체육", "과A", "국어"] // 5반 월
+		var sj152 = ["미술", "영어", "수학", "국어", "역사", "사회", "스포"] // 5반 화
+		var sj153 = ["체육", "과A", "일어", "영어", "수학", "역사"] // 5반 수
+		var sj154 = ["체육", "독서", "영어", "음악", "국어", "과B", "창체"] // 5반 목
+		var sj155 = ["수학", "사회", "국어", "영C", "미술", "과A"] // 5반 금
+
+		var sj161 = ["", "", "", "", "", ""] // 6반 월
+		var sj162 = ["", "", "", "", "", "", ""]
+		var sj163 = ["", "", "", "", "", ""]
+		var sj164 = ["", "", "", "", "", "", ""]
+		var sj165 = ["", "", "", "", "", ""]
+
+		var today = new Date();
+		var day = today.getDay();
+
+		var timeBlockAs = ""
+
+		var timeBlock1 = ""
+		var timeBlock2 = ""
+		var timeBlock3 = ""
+		var timeBlock4 = ""
+		var timeBlock5 = ""
+		var timeBlock6 = ""
+
+		if(day == 1){ // 월요일
+			timeBlockAs = "1 ㅤ2 ㅤ3 ㅤ4 ㅤ5 ㅤ6"
+			for(var i = 0; i < 6; i++){
+				timeBlock1 = timeBlock1 + " " + sj111[i]
+				timeBlock2 = timeBlock2 + " " + sj121[i]
+				timeBlock3 = timeBlock3 + " " + sj131[i]
+				timeBlock4 = timeBlock4 + " " + sj141[i]
+				timeBlock5 = timeBlock5 + " " + sj151[i]
+				timeBlock6 = timeBlock6 + " " + sj161[i]
+
+			}
+		} else if(day == 2){ // 화요일
+			timeBlockAs = "1 ㅤ2 ㅤ3 ㅤ4 ㅤ5 ㅤ6 ㅤ7"
+			for(var i = 0; i < 7; i++){
+				timeBlock1 = timeBlock1 + " " + sj112[i]
+				timeBlock2 = timeBlock2 + " " + sj122[i]
+				timeBlock3 = timeBlock3 + " " + sj132[i]
+				timeBlock4 = timeBlock4 + " " + sj142[i]
+				timeBlock5 = timeBlock5 + " " + sj152[i]
+				timeBlock6 = timeBlock6 + " " + sj162[i]
+			}
+		} else if(day == 3){ // 수요일
+			timeBlockAs = "1 ㅤ2 ㅤ3 ㅤ4 ㅤ5 ㅤ6"
+			for(var i = 0; i < 6; i++){
+				timeBlock1 = timeBlock1 + " " + sj113[i]
+				timeBlock2 = timeBlock2 + " " + sj123[i]
+				timeBlock3 = timeBlock3 + " " + sj133[i]
+				timeBlock4 = timeBlock4 + " " + sj143[i]
+				timeBlock5 = timeBlock5 + " " + sj153[i]
+				timeBlock6 = timeBlock6 + " " + sj163[i]
+			}
+		} else if(day == 4){ // 목요일
+			timeBlockAs = "1 ㅤ2 ㅤ3 ㅤ4 ㅤ5 ㅤ6 ㅤ7"
+			for(var i = 0; i < 7; i++){
+				timeBlock1 = timeBlock1 + " " + sj114[i]
+				timeBlock2 = timeBlock2 + " " + sj124[i]
+				timeBlock3 = timeBlock3 + " " + sj134[i]
+				timeBlock4 = timeBlock4 + " " + sj144[i]
+				timeBlock5 = timeBlock5 + " " + sj154[i]
+				timeBlock6 = timeBlock6 + " " + sj164[i]
+			}
+		} else if(day == 5){ // 금요일
+			timeBlockAs = "1 ㅤ2 ㅤ3 ㅤ4 ㅤ5 ㅤ6"
+			for(var i = 0; i < 6; i++){
+				timeBlock1 = timeBlock1 + " " + sj115[i]
+				timeBlock2 = timeBlock2 + " " + sj125[i]
+				timeBlock3 = timeBlock3 + " " + sj135[i]
+				timeBlock4 = timeBlock4 + " " + sj145[i]
+				timeBlock5 = timeBlock5 + " " + sj155[i]
+				timeBlock6 = timeBlock6 + " " + sj165[i]
+			}
+		} else{ // 토요일, 일요일
+			timeBlockAs = "Wa!"
+			timeBlock1 = "오늘은 수업이 없는 날입니다!"
+			timeBlock2 = "오늘은 수업이 없는 날입니다!"
+			timeBlock3 = "오늘은 수업이 없는 날입니다!"
+			timeBlock4 = "오늘은 수업이 없는 날입니다!"
+			timeBlock5 = "오늘은 수업이 없는 날입니다!"
+			timeBlock6 = "오늘은 수업이 없는 날입니다!"
+		}
+
+		document.getElementById("time1A").innerHTML = timeBlockAs;
+		document.getElementById("time2A").innerHTML = timeBlockAs;
+		document.getElementById("time3A").innerHTML = timeBlockAs;
+		document.getElementById("time4A").innerHTML = timeBlockAs;
+		document.getElementById("time5A").innerHTML = timeBlockAs;
+		document.getElementById("time6A").innerHTML = timeBlockAs;
+
+		document.getElementById("time1B").innerHTML = timeBlock1;
+		document.getElementById("time2B").innerHTML = timeBlock2;
+		document.getElementById("time3B").innerHTML = timeBlock3;
+		document.getElementById("time4B").innerHTML = timeBlock4;
+		document.getElementById("time5B").innerHTML = timeBlock5;
+		document.getElementById("time6B").innerHTML = timeBlock6;
+
+		var date = document.getElementById("date");
+		var time = document.getElementById("time");
+		function updateDate() {
+			var d = new Date();
+			var week = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+			var r = "";
+			r += d.getYear() + 1900 + "년 ";
+			r += d.getMonth() + 1 + "월 ";
+			r += d.getDate() + "일 ";
+			r += "(" + week[d.getDay()] + ")"
+			date.textContent = r;
+			setTimeout(updateDate, 999 - d.getTime() % 1000 + 20);
+		}
+		function updateTime() {
+			var d = new Date();
+			var s = "";
+			s += d.getHours() >= 12 ? "오후 " : "오전 ";
+			s += ((d.getHours() + 11) % 12 + 1) + ":";
+			s += (10 > d.getMinutes() ? "0" : "") + d.getMinutes() + ":";
+			s += (10 > d.getSeconds() ? "0" : "") + d.getSeconds();
+			time.textContent = s;
+			setTimeout(updateTime, 1000 - d.getTime() % 1000 + 20);
+		}
+		updateDate();
+		updateTime();
+	</script>
 </body>
 </html>
